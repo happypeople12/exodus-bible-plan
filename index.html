@@ -39,9 +39,6 @@ textarea{width:100%;height:140px;border-radius:16px;border:1px solid #ddd;paddin
 .small{font-size:13px;color:#777;margin-top:10px}
 .note-item{border-bottom:1px solid #ddd;padding:12px 0}
 .note-item b{color:#b8892e}
-.readerTop{display:flex;gap:10px;align-items:center;margin-bottom:12px}
-.readerTop button{width:auto;margin:0;padding:12px 16px}
-iframe{width:100%;height:72vh;border:0;border-radius:18px;background:white}
 .modal{position:fixed;inset:0;background:#00000080;display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
 .modal-box{background:white;border-radius:28px;padding:32px;text-align:center;max-width:360px;width:100%;box-shadow:0 20px 60px #00000055}
 .modal-box h2{color:#b8892e;font-size:34px;margin:0 0 10px}
@@ -80,17 +77,6 @@ iframe{width:100%;height:72vh;border:0;border-radius:18px;background:white}
     <textarea id="note"></textarea>
     <button class="black" onclick="saveNote()" id="saveNoteBtn">Сохранить заметку</button>
     <div class="small" id="noteInfo">Заметки сохраняются на этом устройстве.</div>
-  </div>
-</section>
-
-<section id="readerPage" class="page hidden">
-  <div class="card">
-    <div class="readerTop">
-      <button class="black" onclick="backToToday()" id="backBtn">← Вернуться назад</button>
-    </div>
-    <h2 id="readerTitle"></h2>
-    <a id="openExternal" class="main-btn goldBtn" target="_blank">Открыть в браузере</a>
-    <iframe id="bibleFrame"></iframe>
   </div>
 </section>
 
@@ -192,22 +178,15 @@ isa:{ru:"Ис",uk:"Іс",en:"Isaiah",query:"Isaiah"},
 "1thess":{ru:"1 Фес",uk:"1 Сол",en:"1 Thessalonians",query:"1 Thessalonians"}
 };
 
-const versions = {
-  ru:"RUSV",
-  uk:"UKR",
-  en:"ESV"
-};
+const versions = {ru:"RUSV", uk:"UKR", en:"ESV"};
 
 const ui = {
-ru:{hero:"План Победы 2026",today:"Чтение на сегодня",read:"✓ Я прочитал",readDone:"Прочитано ✅",full:"Открыть весь план",notes:"Мои заметки",placeholder:"Что Бог сказал мне сегодня?",save:"Сохранить заметку",saved:"Заметка сохранена",noteInfo:"Заметки сохраняются на этом устройстве.",progress:"Мой прогресс",readCount:"Прочитано",missed:"Пропущено",total:"Всего",calendar:"Календарь года",allNotes:"Все заметки",noNotes:"Пока нет сохранённых заметок.",navToday:"Сегодня",navProgress:"Прогресс",navNotes:"Заметки",day:"День",of:"из",missing:"Этот день ещё нужно добавить в план.",winner:"Ты победитель!",winnerText:"Сегодня ты сделал важный духовный шаг.",amen:"Аминь",todayLabel:"Сегодня:",back:"← Вернуться назад",open:"Открыть в браузере"},
-uk:{hero:"План Перемоги 2026",today:"Читання на сьогодні",read:"✓ Я прочитав",readDone:"Прочитано ✅",full:"Відкрити весь план",notes:"Мої нотатки",placeholder:"Що Бог сказав мені сьогодні?",save:"Зберегти нотатку",saved:"Нотатку збережено",noteInfo:"Нотатки зберігаються на цьому пристрої.",progress:"Мій прогрес",readCount:"Прочитано",missed:"Пропущено",total:"Усього",calendar:"Календар року",allNotes:"Усі нотатки",noNotes:"Поки немає збережених нотаток.",navToday:"Сьогодні",navProgress:"Прогрес",navNotes:"Нотатки",day:"День",of:"з",missing:"Цей день ще потрібно додати в план.",winner:"Ти переможець!",winnerText:"Сьогодні ти зробив важливий духовний крок.",amen:"Амінь",todayLabel:"Сьогодні:",back:"← Повернутися назад",open:"Відкрити в браузері"},
-en:{hero:"Victory Plan 2026",today:"Today’s Reading",read:"✓ I read today",readDone:"Read ✅",full:"Open full plan",notes:"My notes",placeholder:"What did God speak to me today?",save:"Save note",saved:"Note saved",noteInfo:"Notes are saved on this device.",progress:"My Progress",readCount:"Read",missed:"Missed",total:"Total",calendar:"Year Calendar",allNotes:"All Notes",noNotes:"No saved notes yet.",navToday:"Today",navProgress:"Progress",navNotes:"Notes",day:"Day",of:"of",missing:"This day still needs to be added to the plan.",winner:"You are a winner!",winnerText:"Today you made an important spiritual step.",amen:"Amen",todayLabel:"Today:",back:"← Go back",open:"Open in browser"}
+ru:{hero:"План Победы 2026",today:"Чтение на сегодня",read:"✓ Я прочитал",readDone:"Прочитано ✅",full:"Открыть весь план",notes:"Мои заметки",placeholder:"Что Бог сказал мне сегодня?",save:"Сохранить заметку",saved:"Заметка сохранена",noteInfo:"Заметки сохраняются на этом устройстве.",progress:"Мой прогресс",readCount:"Прочитано",missed:"Пропущено",total:"Всего",calendar:"Календарь года",allNotes:"Все заметки",noNotes:"Пока нет сохранённых заметок.",navToday:"Сегодня",navProgress:"Прогресс",navNotes:"Заметки",day:"День",of:"из",missing:"Этот день ещё нужно добавить в план.",winner:"Ты победитель!",winnerText:"Сегодня ты сделал важный духовный шаг.",amen:"Аминь",todayLabel:"Сегодня:"},
+uk:{hero:"План Перемоги 2026",today:"Читання на сьогодні",read:"✓ Я прочитав",readDone:"Прочитано ✅",full:"Відкрити весь план",notes:"Мої нотатки",placeholder:"Що Бог сказав мені сьогодні?",save:"Зберегти нотатку",saved:"Нотатку збережено",noteInfo:"Нотатки зберігаються на цьому пристрої.",progress:"Мій прогрес",readCount:"Прочитано",missed:"Пропущено",total:"Усього",calendar:"Календар року",allNotes:"Усі нотатки",noNotes:"Поки немає збережених нотаток.",navToday:"Сьогодні",navProgress:"Прогрес",navNotes:"Нотатки",day:"День",of:"з",missing:"Цей день ще потрібно додати в план.",winner:"Ти переможець!",winnerText:"Сьогодні ти зробив важливий духовний крок.",amen:"Амінь",todayLabel:"Сьогодні:"},
+en:{hero:"Victory Plan 2026",today:"Today’s Reading",read:"✓ I read today",readDone:"Read ✅",full:"Open full plan",notes:"My notes",placeholder:"What did God speak to me today?",save:"Save note",saved:"Note saved",noteInfo:"Notes are saved on this device.",progress:"My Progress",readCount:"Read",missed:"Missed",total:"Total",calendar:"Year Calendar",allNotes:"All Notes",noNotes:"No saved notes yet.",navToday:"Today",navProgress:"Progress",navNotes:"Notes",day:"Day",of:"of",missing:"This day still needs to be added to the plan.",winner:"You are a winner!",winnerText:"Today you made an important spiritual step.",amen:"Amen",todayLabel:"Today:"}
 };
 
 let lang = localStorage.getItem("lang") || "ru";
-let currentReaderTitle = "";
-let currentReaderUrl = "";
-
 const now = new Date();
 const key = String(now.getMonth()+1).padStart(2,"0") + "-" + String(now.getDate()).padStart(2,"0");
 const dayOfYear = Math.floor((now - new Date(now.getFullYear(),0,0)) / 86400000);
@@ -221,25 +200,6 @@ function setLang(l){
 function bibleUrl(bookKey, chapter){
   const passage = encodeURIComponent(books[bookKey].query + " " + chapter);
   return "https://www.biblegateway.com/passage/?search=" + passage + "&version=" + versions[lang];
-}
-
-function openChapter(bookKey, chapter){
-  const b = books[bookKey];
-  currentReaderTitle = b[lang] + " " + chapter;
-  currentReaderUrl = bibleUrl(bookKey, chapter);
-
-  document.getElementById("readerTitle").innerText = currentReaderTitle;
-  document.getElementById("openExternal").href = currentReaderUrl;
-  document.getElementById("bibleFrame").src = currentReaderUrl;
-
-  showPage("readerPage");
-  window.scrollTo(0,0);
-}
-
-function backToToday(){
-  document.getElementById("bibleFrame").src = "";
-  showPage("todayPage");
-  window.scrollTo(0,0);
 }
 
 function applyLang(){
@@ -264,8 +224,6 @@ function applyLang(){
   document.getElementById("winnerTitle").innerText = t.winner;
   document.getElementById("winnerText").innerText = t.winnerText;
   document.getElementById("winnerBtn").innerText = t.amen;
-  document.getElementById("backBtn").innerText = t.back;
-  document.getElementById("openExternal").innerText = t.open;
 
   document.querySelectorAll(".lang button").forEach(b=>b.classList.remove("active"));
   document.getElementById("btn-"+lang).classList.add("active");
@@ -286,10 +244,6 @@ function applyLang(){
     readBtn.classList.remove("done");
   }
 
-  if(currentReaderTitle){
-    document.getElementById("readerTitle").innerText = currentReaderTitle;
-  }
-
   renderReading();
   renderNotes();
 }
@@ -304,12 +258,11 @@ function renderReading(){
   readingBox.innerHTML = plan[key].map(([bookKey, chapter])=>{
     const b = books[bookKey];
     const title = b[lang] + " " + chapter;
-    return `<button class="chapter-btn" onclick="openChapter('${bookKey}', ${chapter})">📖 ${title}</button>`;
+    return `<a class="chapter-btn" target="_blank" href="${bibleUrl(bookKey, chapter)}">📖 ${title}</a>`;
   }).join("");
 }
 
-const readBtn = document.getElementById("readBtn");
-readBtn.onclick = function(){
+document.getElementById("readBtn").onclick = function(){
   localStorage.setItem("read-"+key,"yes");
   applyLang();
   renderProgress();
@@ -373,12 +326,7 @@ function renderNotes(){
     const note = localStorage.getItem("note-"+k);
 
     if(note){
-      box.innerHTML += `
-        <div class="note-item">
-          <b>${date.toLocaleDateString(lang==="en" ? "en-US" : lang==="uk" ? "uk-UA" : "ru-RU",{day:"numeric",month:"long"})}</b>
-          <p>${note}</p>
-        </div>
-      `;
+      box.innerHTML += `<div class="note-item"><b>${date.toLocaleDateString(lang==="en" ? "en-US" : lang==="uk" ? "uk-UA" : "ru-RU",{day:"numeric",month:"long"})}</b><p>${note}</p></div>`;
     }
   }
 
