@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exodus Bible Plan</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f4ee;
+      color: #111;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 18px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      margin-top: 5px;
+      color: #555;
+    }
+
+    .today {
+      background: #111;
+      color: #fff;
+      padding: 14px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    iframe {
+      width: 100%;
+      height: calc(100vh - 120px);
+      border: none;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">EXODUS CHURCH</div>
+    <div class="subtitle">Ежедневное чтение Библии</div>
+  </header>
+
+  <div class="today" id="todayText">
+    План чтения на сегодня
+  </div>
+
+  <iframe src="https://bibleplan.ru/"></iframe>
+
+  <script>
+    const date = new Date();
+
+    const formattedDate = date.toLocaleDateString("ru-RU", {
+      day: "numeric",
+      month: "long"
+    });
+
+    document.getElementById("todayText").innerText =
+      "Сегодня: " + formattedDate;
+  </script>
+
+</body>
+</html>
