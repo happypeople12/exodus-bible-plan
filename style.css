@@ -1,0 +1,285 @@
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:'Montserrat', Arial, sans-serif;
+  background:#000;
+  color:#111;
+}
+
+.hero{
+  background:
+    linear-gradient(#00000088,#000000ee),
+    url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1600&q=80');
+  background-size:cover;
+  background-position:center;
+  color:white;
+  text-align:center;
+  padding:34px 18px 58px;
+}
+
+.hero-overlay{
+  max-width:760px;
+  margin:auto;
+}
+
+.logo{
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 0 34px #c89b3c88;
+  border:2px solid #c89b3c77;
+}
+
+.hero h1{
+  margin:14px 0 5px;
+  font-size:28px;
+  letter-spacing:1px;
+  font-weight:900;
+}
+
+.hero p{
+  margin:0;
+  color:#fff;
+  font-weight:900;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+}
+
+.app{
+  max-width:760px;
+  margin:-30px auto 90px;
+  padding:0 16px;
+}
+
+.card{
+  background:white;
+  border-radius:26px;
+  padding:22px;
+  margin-bottom:18px;
+  box-shadow:0 10px 30px #00000035;
+}
+
+.lang{
+  display:flex;
+  gap:8px;
+  margin-bottom:14px;
+}
+
+.lang button{
+  flex:1;
+  margin:0;
+  padding:12px;
+  border-radius:14px;
+  border:0;
+  font-weight:900;
+  font-family:'Montserrat', Arial, sans-serif;
+  cursor:pointer;
+}
+
+#btn-ru{
+  background:#fff;
+  color:#000;
+  border:1px solid #ddd;
+}
+
+#btn-uk{
+  background:linear-gradient(to bottom,#0057b7 50%,#ffd700 50%);
+  color:#111;
+}
+
+#btn-en{
+  background:
+    linear-gradient(135deg,#b22234 0 20%,#fff 20% 40%,#b22234 40% 60%,#fff 60% 80%,#b22234 80%);
+  color:#0a3161;
+}
+
+.lang button.active{
+  outline:3px solid #c89b3c;
+  box-shadow:0 0 14px #c89b3c88;
+}
+
+.date{
+  color:#555;
+  font-weight:700;
+}
+
+h2{
+  font-size:30px;
+  margin:14px 0 6px;
+  font-weight:900;
+}
+
+.gold{
+  color:#b8892e;
+  font-weight:800;
+  margin-bottom:14px;
+}
+
+.chapter-btn{
+  display:block;
+  background:#f7f2e8;
+  color:#111;
+  padding:15px;
+  border-radius:16px;
+  margin:10px 0;
+  font-size:20px;
+  font-weight:900;
+  text-align:left;
+  text-decoration:none;
+  border:1px solid #eadfcb;
+}
+
+.chapter-btn:hover{
+  background:#efe0c0;
+}
+
+button,a.main-btn{
+  width:100%;
+  display:block;
+  text-align:center;
+  border:0;
+  border-radius:16px;
+  padding:16px;
+  font-size:16px;
+  font-weight:900;
+  margin-top:12px;
+  text-decoration:none;
+  cursor:pointer;
+  font-family:'Montserrat', Arial, sans-serif;
+}
+
+.black{
+  background:#050505;
+  color:white;
+}
+
+.goldBtn{
+  background:#efe4cf;
+  color:#111;
+}
+
+.done{
+  background:#188038!important;
+  color:white;
+}
+
+textarea{
+  width:100%;
+  height:140px;
+  border-radius:16px;
+  border:1px solid #ddd;
+  padding:14px;
+  font-size:16px;
+  resize:none;
+  font-family:'Montserrat', Arial, sans-serif;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:10px;
+  text-align:center;
+}
+
+.stat{
+  background:#f7f2e8;
+  padding:14px;
+  border-radius:16px;
+}
+
+.stat b{
+  font-size:24px;
+}
+
+.calendar{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:7px;
+  margin-top:15px;
+}
+
+.day{
+  padding:10px 0;
+  border-radius:10px;
+  text-align:center;
+  font-size:13px;
+  background:#eee;
+}
+
+.day.read{
+  background:#dff3df;
+  color:#137333;
+  font-weight:900;
+}
+
+.day.missed{
+  background:#ffe0e0;
+  color:#b3261e;
+}
+
+.nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#050505;
+  display:flex;
+  justify-content:space-around;
+  padding:10px;
+  z-index:20;
+}
+
+.nav button{
+  width:auto;
+  margin:0;
+  background:none;
+  color:white;
+  font-size:13px;
+  padding:10px;
+}
+
+.hidden{display:none}
+
+.small{
+  font-size:13px;
+  color:#777;
+  margin-top:10px;
+}
+
+.note-item{
+  border-bottom:1px solid #ddd;
+  padding:12px 0;
+}
+
+.note-item b{
+  color:#b8892e;
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:#00000080;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:50;
+  padding:20px;
+}
+
+.modal-box{
+  background:white;
+  border-radius:28px;
+  padding:32px;
+  text-align:center;
+  max-width:360px;
+  width:100%;
+  box-shadow:0 20px 60px #00000055;
+}
+
+.modal-box h2{
+  color:#b8892e;
+  font-size:34px;
+  margin:0 0 10px;
+}
