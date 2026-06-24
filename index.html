@@ -7,209 +7,42 @@
 
 <style>
 *{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f7f2e8;
-  color:#111;
-}
-
-.hero{
-  background:radial-gradient(circle at top,#2c2418,#050505 75%);
-  color:white;
-  text-align:center;
-  padding:30px 18px 48px;
-}
-
-.logo{
-  width:125px;
-  height:125px;
-  border-radius:50%;
-  object-fit:cover;
-  box-shadow:0 0 30px #c89b3c55;
-}
-
-.hero h1{
-  margin:14px 0 5px;
-  font-size:28px;
-  letter-spacing:1px;
-}
-
-.hero p{
-  margin:0;
-  color:#c89b3c;
-  font-weight:bold;
-}
-
-.app{
-  max-width:760px;
-  margin:-30px auto 90px;
-  padding:0 16px;
-}
-
-.card{
-  background:white;
-  border-radius:26px;
-  padding:22px;
-  margin-bottom:18px;
-  box-shadow:0 10px 30px #00000018;
-}
-
-.date{
-  color:#555;
-  font-weight:bold;
-}
-
-h2{
-  font-size:30px;
-  margin:14px 0 6px;
-}
-
-.gold{
-  color:#b8892e;
-  font-weight:bold;
-  margin-bottom:14px;
-}
-
-.chapter-btn{
-  display:block;
-  background:#f7f2e8;
-  color:#111;
-  padding:15px;
-  border-radius:16px;
-  margin:10px 0;
-  font-size:20px;
-  font-weight:800;
-  text-align:left;
-  text-decoration:none;
-}
-
-.chapter-btn:hover{
-  background:#efe0c0;
-}
-
-button,a.main-btn{
-  width:100%;
-  display:block;
-  text-align:center;
-  border:0;
-  border-radius:16px;
-  padding:16px;
-  font-size:16px;
-  font-weight:bold;
-  margin-top:12px;
-  text-decoration:none;
-  cursor:pointer;
-}
-
-.black{
-  background:#050505;
-  color:white;
-}
-
-.goldBtn{
-  background:#efe4cf;
-  color:#111;
-}
-
-.done{
-  background:#188038!important;
-  color:white;
-}
-
-textarea{
-  width:100%;
-  height:140px;
-  border-radius:16px;
-  border:1px solid #ddd;
-  padding:14px;
-  font-size:16px;
-  resize:none;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  gap:10px;
-  text-align:center;
-}
-
-.stat{
-  background:#f7f2e8;
-  padding:14px;
-  border-radius:16px;
-}
-
-.stat b{
-  font-size:24px;
-}
-
-.calendar{
-  display:grid;
-  grid-template-columns:repeat(7,1fr);
-  gap:7px;
-  margin-top:15px;
-}
-
-.day{
-  padding:10px 0;
-  border-radius:10px;
-  text-align:center;
-  font-size:13px;
-  background:#eee;
-}
-
-.day.read{
-  background:#dff3df;
-  color:#137333;
-  font-weight:bold;
-}
-
-.day.missed{
-  background:#ffe0e0;
-  color:#b3261e;
-}
-
-.nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:#050505;
-  display:flex;
-  justify-content:space-around;
-  padding:10px;
-  z-index:20;
-}
-
-.nav button{
-  width:auto;
-  margin:0;
-  background:none;
-  color:white;
-  font-size:13px;
-  padding:10px;
-}
-
-.hidden{
-  display:none;
-}
-
-.small{
-  font-size:13px;
-  color:#777;
-  margin-top:10px;
-}
-
-.note-item{
-  border-bottom:1px solid #ddd;
-  padding:12px 0;
-}
-
-.note-item b{
-  color:#b8892e;
-}
+body{margin:0;font-family:Arial,sans-serif;background:#f7f2e8;color:#111}
+.hero{background:radial-gradient(circle at top,#2c2418,#050505 75%);color:white;text-align:center;padding:30px 18px 48px}
+.logo{width:125px;height:125px;border-radius:50%;object-fit:cover;box-shadow:0 0 30px #c89b3c55}
+.hero h1{margin:14px 0 5px;font-size:28px;letter-spacing:1px}
+.hero p{margin:0;color:#c89b3c;font-weight:bold}
+.app{max-width:760px;margin:-30px auto 90px;padding:0 16px}
+.card{background:white;border-radius:26px;padding:22px;margin-bottom:18px;box-shadow:0 10px 30px #00000018}
+.lang{display:flex;gap:8px;margin-bottom:14px}
+.lang button{flex:1;margin:0;padding:11px;border-radius:14px;border:0;background:#efe4cf;font-weight:bold}
+.lang button.active{background:#050505;color:white}
+.date{color:#555;font-weight:bold}
+h2{font-size:30px;margin:14px 0 6px}
+.gold{color:#b8892e;font-weight:bold;margin-bottom:14px}
+.chapter-btn{display:block;background:#f7f2e8;color:#111;padding:15px;border-radius:16px;margin:10px 0;font-size:20px;font-weight:800;text-align:left;text-decoration:none}
+.chapter-btn:hover{background:#efe0c0}
+button,a.main-btn{width:100%;display:block;text-align:center;border:0;border-radius:16px;padding:16px;font-size:16px;font-weight:bold;margin-top:12px;text-decoration:none;cursor:pointer}
+.black{background:#050505;color:white}
+.goldBtn{background:#efe4cf;color:#111}
+.done{background:#188038!important;color:white}
+textarea{width:100%;height:140px;border-radius:16px;border:1px solid #ddd;padding:14px;font-size:16px;resize:none}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;text-align:center}
+.stat{background:#f7f2e8;padding:14px;border-radius:16px}
+.stat b{font-size:24px}
+.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;margin-top:15px}
+.day{padding:10px 0;border-radius:10px;text-align:center;font-size:13px;background:#eee}
+.day.read{background:#dff3df;color:#137333;font-weight:bold}
+.day.missed{background:#ffe0e0;color:#b3261e}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#050505;display:flex;justify-content:space-around;padding:10px;z-index:20}
+.nav button{width:auto;margin:0;background:none;color:white;font-size:13px;padding:10px}
+.hidden{display:none}
+.small{font-size:13px;color:#777;margin-top:10px}
+.note-item{border-bottom:1px solid #ddd;padding:12px 0}
+.note-item b{color:#b8892e}
+.modal{position:fixed;inset:0;background:#00000080;display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.modal-box{background:white;border-radius:28px;padding:32px;text-align:center;max-width:360px;width:100%;box-shadow:0 20px 60px #00000055}
+.modal-box h2{color:#b8892e;font-size:34px;margin:0 0 10px}
 </style>
 </head>
 
@@ -218,49 +51,55 @@ textarea{
 <div class="hero">
   <img class="logo" src="logo.jpeg" alt="Exodus Church Logo">
   <h1>EXODUS CHURCH</h1>
-  <p>План Победы 2026</p>
+  <p id="heroTitle">План Победы 2026</p>
 </div>
 
 <div class="app">
 
 <section id="todayPage" class="page">
   <div class="card">
+    <div class="lang">
+      <button onclick="setLang('ru')" id="btn-ru">RU</button>
+      <button onclick="setLang('uk')" id="btn-uk">UA</button>
+      <button onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+
     <div class="date" id="todayDate"></div>
-    <h2>Чтение на сегодня</h2>
+    <h2 id="todayTitle">Чтение на сегодня</h2>
     <div class="gold" id="dayNumber"></div>
     <div id="reading"></div>
 
     <button id="readBtn" class="black">✓ Я прочитал</button>
-    <a class="main-btn goldBtn" href="https://bibleplan.ru/plan" target="_blank">Открыть весь план</a>
+    <a class="main-btn goldBtn" href="https://bibleplan.ru/plan" target="_blank" id="fullPlanBtn">Открыть весь план</a>
   </div>
 
   <div class="card">
-    <h3>Мои заметки</h3>
-    <textarea id="note" placeholder="Что Бог сказал мне сегодня?"></textarea>
-    <button class="black" onclick="saveNote()">Сохранить заметку</button>
-    <div class="small">Заметки сохраняются на этом устройстве.</div>
+    <h3 id="notesTitle">Мои заметки</h3>
+    <textarea id="note"></textarea>
+    <button class="black" onclick="saveNote()" id="saveNoteBtn">Сохранить заметку</button>
+    <div class="small" id="noteInfo">Заметки сохраняются на этом устройстве.</div>
   </div>
 </section>
 
 <section id="progressPage" class="page hidden">
   <div class="card">
-    <h2>Мой прогресс</h2>
+    <h2 id="progressTitle">Мой прогресс</h2>
     <div class="stats">
-      <div class="stat"><b id="readCount">0</b><br>Прочитано</div>
-      <div class="stat"><b id="missedCount">0</b><br>Пропущено</div>
-      <div class="stat"><b>365</b><br>Всего</div>
+      <div class="stat"><b id="readCount">0</b><br><span id="readText">Прочитано</span></div>
+      <div class="stat"><b id="missedCount">0</b><br><span id="missedText">Пропущено</span></div>
+      <div class="stat"><b>365</b><br><span id="totalText">Всего</span></div>
     </div>
   </div>
 
   <div class="card">
-    <h3>Календарь года</h3>
+    <h3 id="calendarTitle">Календарь года</h3>
     <div class="calendar" id="calendar"></div>
   </div>
 </section>
 
 <section id="notesPage" class="page hidden">
   <div class="card">
-    <h2>Все заметки</h2>
+    <h2 id="allNotesTitle">Все заметки</h2>
     <div id="allNotes"></div>
   </div>
 </section>
@@ -268,127 +107,200 @@ textarea{
 </div>
 
 <div class="nav">
-  <button onclick="showPage('todayPage')">Сегодня</button>
-  <button onclick="showPage('progressPage')">Прогресс</button>
-  <button onclick="showPage('notesPage')">Заметки</button>
+  <button onclick="showPage('todayPage')" id="navToday">Сегодня</button>
+  <button onclick="showPage('progressPage')" id="navProgress">Прогресс</button>
+  <button onclick="showPage('notesPage')" id="navNotes">Заметки</button>
+</div>
+
+<div class="modal" id="winnerModal">
+  <div class="modal-box">
+    <h2 id="winnerTitle">Ты победитель!</h2>
+    <p id="winnerText">Сегодня ты сделал важный духовный шаг.</p>
+    <button class="black" onclick="closeWinner()" id="winnerBtn">Аминь</button>
+  </div>
 </div>
 
 <script>
 const plan = {
-"06-24":["Притч 24","Флп 1","3 Цар 11","3 Цар 12"],
-"06-25":["Притч 25","Флп 2","3 Цар 13","3 Цар 14"],
-"06-26":["Притч 26","Флп 3","2 Пар 10","2 Пар 11"],
-"06-27":["Притч 27","Флп 4","2 Пар 12","2 Пар 13"],
-"06-28":["Притч 28","Кол 1","2 Пар 14","2 Пар 15"],
-"06-29":["Притч 29","Кол 2","2 Пар 16","2 Пар 17"],
-"06-30":["Притч 30","Кол 3","2 Пар 18","2 Пар 19"],
+"06-24":[["prov",24],["phil",1],["1kings",11],["1kings",12]],
+"06-25":[["prov",25],["phil",2],["1kings",13],["1kings",14]],
+"06-26":[["prov",26],["phil",3],["2chron",10],["2chron",11]],
+"06-27":[["prov",27],["phil",4],["2chron",12],["2chron",13]],
+"06-28":[["prov",28],["col",1],["2chron",14],["2chron",15]],
+"06-29":[["prov",29],["col",2],["2chron",16],["2chron",17]],
+"06-30":[["prov",30],["col",3],["2chron",18],["2chron",19]],
 
-"07-01":["Притч 31","Кол 4","3 Цар 15","3 Цар 16"],
-"07-02":["Пс 1","Мф 1","3 Цар 17","3 Цар 18"],
-"07-03":["Пс 2","Мф 2","3 Цар 19","3 Цар 20"],
-"07-04":["Пс 3","Мф 3","3 Цар 21","3 Цар 22"],
-"07-05":["Пс 4","Мф 4","2 Пар 20","2 Пар 21"],
-"07-06":["Пс 5","Мф 5","4 Цар 1","4 Цар 2"],
-"07-07":["Пс 6","Мф 6","4 Цар 3","4 Цар 4"],
-"07-08":["Пс 7","Мф 7","4 Цар 5","4 Цар 6"],
-"07-09":["Пс 8","Мф 8","4 Цар 7","4 Цар 8"],
-"07-10":["Пс 9","Мф 9","Авд 1"],
-"07-11":["Пс 10","Мф 10","2 Пар 22"],
-"07-12":["Пс 11","Мф 11","Иоил 1","Иоил 2","Иоил 3"],
-"07-13":["Пс 12","Мф 12","4 Цар 9","4 Цар 10"],
-"07-14":["Пс 13","Мф 13","4 Цар 11","4 Цар 12"],
-"07-15":["Пс 14","Мф 14","4 Цар 13","4 Цар 14"],
-"07-16":["Пс 15","Мф 15","Иона 1","Иона 2","Иона 3","Иона 4"],
-"07-17":["Пс 16","Мф 16","Ам 1","Ам 2"],
-"07-18":["Пс 17","Мф 17","Ам 3","Ам 4","Ам 5"],
-"07-19":["Пс 18","Мф 18","Ам 6","Ам 7"],
-"07-20":["Пс 19","Мф 19","Ам 8","Ам 9"],
-"07-21":["Пс 20","Мф 20","2 Пар 23","2 Пар 24"],
-"07-22":["Пс 21","Мф 21","2 Пар 25","2 Пар 26"],
-"07-23":["Пс 22","Мф 22","Ис 1","Ис 2"],
-"07-24":["Пс 23","Мф 23","Ис 3","Ис 4"],
-"07-25":["Пс 24","Мф 24","Ис 5","Ис 6"],
-"07-26":["Пс 25","Мф 25","2 Пар 27","2 Пар 28"],
-"07-27":["Пс 26","Мф 26","4 Цар 15","4 Цар 16"],
-"07-28":["Пс 27","Мф 27","Ис 7","Ис 8"],
-"07-29":["Пс 28","Мф 28","Ис 9","Ис 10"],
-"07-30":["Пс 29","1 Фес 1","Ис 11","Ис 12"],
-"07-31":["Пс 30","1 Фес 2","Ис 13","Ис 14"]
+"07-01":[["prov",31],["col",4],["1kings",15],["1kings",16]],
+"07-02":[["ps",1],["matt",1],["1kings",17],["1kings",18]],
+"07-03":[["ps",2],["matt",2],["1kings",19],["1kings",20]],
+"07-04":[["ps",3],["matt",3],["1kings",21],["1kings",22]],
+"07-05":[["ps",4],["matt",4],["2chron",20],["2chron",21]],
+"07-06":[["ps",5],["matt",5],["2kings",1],["2kings",2]],
+"07-07":[["ps",6],["matt",6],["2kings",3],["2kings",4]],
+"07-08":[["ps",7],["matt",7],["2kings",5],["2kings",6]],
+"07-09":[["ps",8],["matt",8],["2kings",7],["2kings",8]],
+"07-10":[["ps",9],["matt",9],["obad",1]],
+"07-11":[["ps",10],["matt",10],["2chron",22]],
+"07-12":[["ps",11],["matt",11],["joel",1],["joel",2],["joel",3]],
+"07-13":[["ps",12],["matt",12],["2kings",9],["2kings",10]],
+"07-14":[["ps",13],["matt",13],["2kings",11],["2kings",12]],
+"07-15":[["ps",14],["matt",14],["2kings",13],["2kings",14]],
+"07-16":[["ps",15],["matt",15],["jonah",1],["jonah",2],["jonah",3],["jonah",4]],
+"07-17":[["ps",16],["matt",16],["amos",1],["amos",2]],
+"07-18":[["ps",17],["matt",17],["amos",3],["amos",4],["amos",5]],
+"07-19":[["ps",18],["matt",18],["amos",6],["amos",7]],
+"07-20":[["ps",19],["matt",19],["amos",8],["amos",9]],
+"07-21":[["ps",20],["matt",20],["2chron",23],["2chron",24]],
+"07-22":[["ps",21],["matt",21],["2chron",25],["2chron",26]],
+"07-23":[["ps",22],["matt",22],["isa",1],["isa",2]],
+"07-24":[["ps",23],["matt",23],["isa",3],["isa",4]],
+"07-25":[["ps",24],["matt",24],["isa",5],["isa",6]],
+"07-26":[["ps",25],["matt",25],["2chron",27],["2chron",28]],
+"07-27":[["ps",26],["matt",26],["2kings",15],["2kings",16]],
+"07-28":[["ps",27],["matt",27],["isa",7],["isa",8]],
+"07-29":[["ps",28],["matt",28],["isa",9],["isa",10]],
+"07-30":[["ps",29],["1thess",1],["isa",11],["isa",12]],
+"07-31":[["ps",30],["1thess",2],["isa",13],["isa",14]]
 };
 
-const bookLinks = {
-  "Притч":"proverbs",
-  "Флп":"philippians",
-  "Кол":"colossians",
-  "Пс":"psalms",
-  "Мф":"matthew",
-  "3 Цар":"1-kings",
-  "4 Цар":"2-kings",
-  "2 Пар":"2-chronicles",
-  "Авд":"obadiah",
-  "Иоил":"joel",
-  "Иона":"jonah",
-  "Ам":"amos",
-  "Ис":"isaiah",
-  "1 Фес":"1-thessalonians"
+const books = {
+ps:{ru:"Пс",uk:"Пс",en:"Psalms",slug:"psalms"},
+prov:{ru:"Притч",uk:"Прип",en:"Proverbs",slug:"proverbs"},
+matt:{ru:"Мф",uk:"Мт",en:"Matthew",slug:"matthew"},
+phil:{ru:"Флп",uk:"Флп",en:"Philippians",slug:"philippians"},
+col:{ru:"Кол",uk:"Кол",en:"Colossians",slug:"colossians"},
+"1kings":{ru:"3 Цар",uk:"3 Цар",en:"1 Kings",slug:"1kings"},
+"2kings":{ru:"4 Цар",uk:"4 Цар",en:"2 Kings",slug:"2kings"},
+"2chron":{ru:"2 Пар",uk:"2 Хр",en:"2 Chronicles",slug:"2chron"},
+obad:{ru:"Авд",uk:"Авд",en:"Obadiah",slug:"obadiah"},
+joel:{ru:"Иоил",uk:"Йоіл",en:"Joel",slug:"joel"},
+jonah:{ru:"Иона",uk:"Йона",en:"Jonah",slug:"jonah"},
+amos:{ru:"Ам",uk:"Ам",en:"Amos",slug:"amos"},
+isa:{ru:"Ис",uk:"Іс",en:"Isaiah",slug:"isaiah"},
+"1thess":{ru:"1 Фес",uk:"1 Сол",en:"1 Thessalonians",slug:"1thessalonians"}
 };
 
+const ui = {
+ru:{
+hero:"План Победы 2026", today:"Чтение на сегодня", read:"✓ Я прочитал", readDone:"Прочитано ✅",
+full:"Открыть весь план", notes:"Мои заметки", placeholder:"Что Бог сказал мне сегодня?",
+save:"Сохранить заметку", saved:"Заметка сохранена", noteInfo:"Заметки сохраняются на этом устройстве.",
+progress:"Мой прогресс", readCount:"Прочитано", missed:"Пропущено", total:"Всего",
+calendar:"Календарь года", allNotes:"Все заметки", noNotes:"Пока нет сохранённых заметок.",
+navToday:"Сегодня", navProgress:"Прогресс", navNotes:"Заметки", day:"День", of:"из",
+missing:"Этот день ещё нужно добавить в план.", winner:"Ты победитель!", winnerText:"Сегодня ты сделал важный духовный шаг.", amen:"Аминь",
+todayLabel:"Сегодня:"
+},
+uk:{
+hero:"План Перемоги 2026", today:"Читання на сьогодні", read:"✓ Я прочитав", readDone:"Прочитано ✅",
+full:"Відкрити весь план", notes:"Мої нотатки", placeholder:"Що Бог сказав мені сьогодні?",
+save:"Зберегти нотатку", saved:"Нотатку збережено", noteInfo:"Нотатки зберігаються на цьому пристрої.",
+progress:"Мій прогрес", readCount:"Прочитано", missed:"Пропущено", total:"Усього",
+calendar:"Календар року", allNotes:"Усі нотатки", noNotes:"Поки немає збережених нотаток.",
+navToday:"Сьогодні", navProgress:"Прогрес", navNotes:"Нотатки", day:"День", of:"з",
+missing:"Цей день ще потрібно додати в план.", winner:"Ти переможець!", winnerText:"Сьогодні ти зробив важливий духовний крок.", amen:"Амінь",
+todayLabel:"Сьогодні:"
+},
+en:{
+hero:"Victory Plan 2026", today:"Today’s Reading", read:"✓ I read today", readDone:"Read ✅",
+full:"Open full plan", notes:"My notes", placeholder:"What did God speak to me today?",
+save:"Save note", saved:"Note saved", noteInfo:"Notes are saved on this device.",
+progress:"My Progress", readCount:"Read", missed:"Missed", total:"Total",
+calendar:"Year Calendar", allNotes:"All Notes", noNotes:"No saved notes yet.",
+navToday:"Today", navProgress:"Progress", navNotes:"Notes", day:"Day", of:"of",
+missing:"This day still needs to be added to the plan.", winner:"You are a winner!", winnerText:"Today you made an important spiritual step.", amen:"Amen",
+todayLabel:"Today:"
+}
+};
+
+let lang = localStorage.getItem("lang") || "ru";
 const now = new Date();
 const key = String(now.getMonth()+1).padStart(2,"0") + "-" + String(now.getDate()).padStart(2,"0");
 const dayOfYear = Math.floor((now - new Date(now.getFullYear(),0,0)) / 86400000);
 
-document.getElementById("todayDate").innerText =
-  "Сегодня: " + now.toLocaleDateString("ru-RU", {
-    day:"numeric",
-    month:"long",
-    year:"numeric"
-  });
-
-document.getElementById("dayNumber").innerText = "День " + dayOfYear + " из 365";
-
-function chapterLink(item){
-  const chapter = item.match(/\d+$/)?.[0];
-  const book = item.replace(/\s\d+$/, "");
-  const slug = bookLinks[book];
-
-  if(!slug || !chapter){
-    return `<div class="chapter-btn">📖 ${item}</div>`;
-  }
-
-  return `
-    <a class="chapter-btn" target="_blank" href="https://bibleplan.ru/bible/${slug}/${chapter}">
-      📖 ${item}
-    </a>
-  `;
+function setLang(l){
+  lang = l;
+  localStorage.setItem("lang", l);
+  applyLang();
 }
 
-const readingBox = document.getElementById("reading");
+function applyLang(){
+  const t = ui[lang];
+  document.documentElement.lang = lang;
+  document.getElementById("heroTitle").innerText = t.hero;
+  document.getElementById("todayTitle").innerText = t.today;
+  document.getElementById("fullPlanBtn").innerText = t.full;
+  document.getElementById("notesTitle").innerText = t.notes;
+  document.getElementById("note").placeholder = t.placeholder;
+  document.getElementById("saveNoteBtn").innerText = t.save;
+  document.getElementById("noteInfo").innerText = t.noteInfo;
+  document.getElementById("progressTitle").innerText = t.progress;
+  document.getElementById("readText").innerText = t.readCount;
+  document.getElementById("missedText").innerText = t.missed;
+  document.getElementById("totalText").innerText = t.total;
+  document.getElementById("calendarTitle").innerText = t.calendar;
+  document.getElementById("allNotesTitle").innerText = t.allNotes;
+  document.getElementById("navToday").innerText = t.navToday;
+  document.getElementById("navProgress").innerText = t.navProgress;
+  document.getElementById("navNotes").innerText = t.navNotes;
+  document.getElementById("winnerTitle").innerText = t.winner;
+  document.getElementById("winnerText").innerText = t.winnerText;
+  document.getElementById("winnerBtn").innerText = t.amen;
 
-if(plan[key]){
-  readingBox.innerHTML = plan[key].map(chapterLink).join("");
-}else{
-  readingBox.innerHTML = "<div class='chapter-btn'>Этот день ещё нужно добавить в план.</div>";
+  document.querySelectorAll(".lang button").forEach(b=>b.classList.remove("active"));
+  document.getElementById("btn-"+lang).classList.add("active");
+
+  document.getElementById("todayDate").innerText =
+    t.todayLabel + " " + now.toLocaleDateString(lang==="en" ? "en-US" : lang==="uk" ? "uk-UA" : "ru-RU", {
+      day:"numeric", month:"long", year:"numeric"
+    });
+
+  document.getElementById("dayNumber").innerText = t.day + " " + dayOfYear + " " + t.of + " 365";
+
+  const readBtn = document.getElementById("readBtn");
+  if(localStorage.getItem("read-"+key)){
+    readBtn.innerText = t.readDone;
+    readBtn.classList.add("done");
+  }else{
+    readBtn.innerText = t.read;
+    readBtn.classList.remove("done");
+  }
+
+  renderReading();
+  renderNotes();
+}
+
+function renderReading(){
+  const readingBox = document.getElementById("reading");
+  if(!plan[key]){
+    readingBox.innerHTML = "<div class='chapter-btn'>" + ui[lang].missing + "</div>";
+    return;
+  }
+
+  readingBox.innerHTML = plan[key].map(([bookKey, chapter])=>{
+    const b = books[bookKey];
+    const title = b[lang] + " " + chapter;
+    return `<a class="chapter-btn" target="_blank" href="https://bibleplan.ru/bible/${b.slug}/${chapter}">📖 ${title}</a>`;
+  }).join("");
 }
 
 const readBtn = document.getElementById("readBtn");
-
-if(localStorage.getItem("read-"+key)){
-  readBtn.innerText = "Прочитано ✅";
-  readBtn.classList.add("done");
-}
-
 readBtn.onclick = function(){
   localStorage.setItem("read-"+key,"yes");
-  readBtn.innerText = "Прочитано ✅";
-  readBtn.classList.add("done");
+  applyLang();
   renderProgress();
+  document.getElementById("winnerModal").style.display = "flex";
 };
+
+function closeWinner(){
+  document.getElementById("winnerModal").style.display = "none";
+}
 
 document.getElementById("note").value = localStorage.getItem("note-"+key) || "";
 
 function saveNote(){
   localStorage.setItem("note-"+key, document.getElementById("note").value);
-  alert("Заметка сохранена");
+  alert(ui[lang].saved);
 }
 
 function showPage(id){
@@ -439,7 +351,7 @@ function renderNotes(){
     if(note){
       box.innerHTML += `
         <div class="note-item">
-          <b>${date.toLocaleDateString("ru-RU",{day:"numeric",month:"long"})}</b>
+          <b>${date.toLocaleDateString(lang==="en" ? "en-US" : lang==="uk" ? "uk-UA" : "ru-RU",{day:"numeric",month:"long"})}</b>
           <p>${note}</p>
         </div>
       `;
@@ -447,10 +359,11 @@ function renderNotes(){
   }
 
   if(!box.innerHTML){
-    box.innerHTML = "<p>Пока нет сохранённых заметок.</p>";
+    box.innerHTML = "<p>" + ui[lang].noNotes + "</p>";
   }
 }
 
+applyLang();
 renderProgress();
 </script>
 
