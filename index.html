@@ -4,15 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Exodus Bible Plan</title>
+
   <link rel="icon" href="logo.jpeg" type="image/jpeg">
   <link rel="apple-touch-icon" href="logo.jpeg">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#111111">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <div class="bg-overlay"></div>
+
   <header class="hero">
     <img class="logo" src="logo.jpeg" alt="Exodus Church Logo">
     <h1>EXODUS CHURCH</h1>
@@ -20,7 +26,19 @@
   </header>
 
   <main class="app">
-    <section class="card">
+    <section class="card main-card" id="todaySection">
+      <div class="top-row">
+        <div>
+          <div class="date" id="todayDate">Сегодня:</div>
+          <h2 id="planTitle">План победы</h2>
+          <div class="gold" id="dayNumber">День из 365</div>
+        </div>
+
+        <a class="outline-btn" href="https://bibleplan.ru/plan" target="_blank" id="fullPlanBtn">
+          ☰ Весь план ›
+        </a>
+      </div>
+
       <div class="language-title" id="languageTitle">Языки пользования</div>
       <div class="lang">
         <button onclick="setLang('ru')" id="btn-ru">RU</button>
@@ -28,38 +46,67 @@
         <button onclick="setLang('en')" id="btn-en">USA</button>
       </div>
 
-      <div class="date" id="todayDate"></div>
-      <h2 id="planTitle">План Победы 2026</h2>
-      <div class="gold" id="dayNumber"></div>
-      <div id="reading"></div>
+      <div class="reading-grid">
+        <div class="reading-box">
+          <h3 id="todayReadingTitle">Чтение на сегодня</h3>
+          <div id="reading"></div>
+          <button id="readBtn" class="black">✓ Я прочитал</button>
+        </div>
 
-      <button id="readBtn" class="black">✓ Я прочитал</button>
-      <a class="main-btn goldBtn" href="https://bibleplan.ru/plan" target="_blank" id="fullPlanBtn">Открыть весь план</a>
-    </section>
-
-    <section class="card">
-      <h3 id="notesTitle">Мои заметки</h3>
-      <textarea id="note"></textarea>
-      <button class="black" onclick="saveNote()" id="saveNoteBtn">Сохранить заметку</button>
-      <div class="small" id="noteInfo">Ваши заметки сохраняются только на этом устройстве.</div>
-    </section>
-
-    <section class="card">
-      <h3 id="progressTitle">Мой прогресс</h3>
-      <div class="stats">
-        <div class="stat"><b id="readCount">0</b><br><span id="readText">Прочитано</span></div>
-        <div class="stat"><b id="missedCount">0</b><br><span id="missedText">Пропущено</span></div>
-        <div class="stat"><b>365</b><br><span id="totalText">Всего</span></div>
+        <div class="quote-card">
+          <div class="quote-mark">“</div>
+          <p id="quoteText">Не хвались завтрашним днем, потому что не знаешь, что родит тот день.</p>
+          <b id="quoteRef">Притчи 27:1</b>
+          <div class="book-glow"></div>
+        </div>
       </div>
-      <button class="black" onclick="toggleCalendar()" id="calendarBtn">Календарь прогресса</button>
+    </section>
+
+    <section class="card notes-card" id="notesSection">
+      <h3 id="notesTitle">▣ Мои заметки</h3>
+      <textarea id="note" maxlength="1000"></textarea>
+      <div class="note-footer">
+        <div class="small" id="noteInfo">Ваши заметки сохраняются только на этом устройстве.</div>
+        <button class="black save-btn" onclick="saveNote()" id="saveNoteBtn">▣ Сохранить заметку</button>
+      </div>
+    </section>
+
+    <section class="card progress-card" id="progressSection">
+      <div class="progress-header">
+        <h3 id="progressTitle">▣ Календарь прогресса</h3>
+        <button class="small-outline" onclick="toggleCalendar()" id="calendarBtn">▣ Показать календарь</button>
+      </div>
+
+      <div class="progress-content">
+        <div class="stats">
+          <div class="stat green">
+            <span id="readText">Прочитано дней</span>
+            <b id="readCount">0</b>
+          </div>
+          <div class="stat red">
+            <span id="missedText">Пропущено дней</span>
+            <b id="missedCount">0</b>
+          </div>
+          <div class="stat goldStat">
+            <span id="totalText">Дней всего</span>
+            <b>365</b>
+          </div>
+        </div>
+
+        <div class="percent-circle">
+          <b id="percentText">0%</b>
+          <span id="circleText">0 из 365 дней</span>
+        </div>
+      </div>
+
       <div class="calendar hidden" id="calendar"></div>
     </section>
   </main>
 
   <nav class="nav">
-    <button onclick="scrollToTop()" id="navToday">Сегодня</button>
-    <button onclick="toggleCalendar()" id="navCalendar">Календарь прогресса</button>
-    <button onclick="scrollToNotes()" id="navNotes">Заметки</button>
+    <button onclick="scrollToToday()" id="navToday">⌂ Сегодня</button>
+    <button onclick="scrollToProgress()" id="navCalendar">▣ Календарь прогресса</button>
+    <button onclick="scrollToNotes()" id="navNotes">▣ Заметки</button>
   </nav>
 
   <div class="modal" id="winnerModal">
