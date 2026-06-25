@@ -366,14 +366,30 @@ textarea{
   width:150px;
   height:150px;
   border-radius:50%;
-  border:12px solid #ece8e2;
-  border-right-color:#d18a00;
+  background:conic-gradient(#d18a00 0deg, #ece8e2 0deg);
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  background:#fff;
   text-align:center;
+  position:relative;
+  flex-shrink:0;
+}
+
+.percent-circle::before{
+  content:"";
+  position:absolute;
+  width:112px;
+  height:112px;
+  background:white;
+  border-radius:50%;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.03);
+}
+
+.percent-circle b,
+.percent-circle span{
+  position:relative;
+  z-index:2;
 }
 
 .percent-circle b{
