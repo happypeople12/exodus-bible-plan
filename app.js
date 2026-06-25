@@ -4,6 +4,20 @@ const ui={
   en:{hero:"Daily Bible Reading",plan:"Victory plan",full:"☰ Full plan ›",language:"User languages",todayReading:"Today’s reading",read:"✓ I read today",readDone:"Read ✅",notes:"▣ My notes",placeholder:"What did God speak to me today?",save:"▣ Save note",saved:"Note saved",noteInfo:"Your notes are saved only on this device.",progress:"▣ Progress calendar",readCount:"Days read",missed:"Days missed",total:"Total days",calendar:"▣ Show calendar",navToday:"⌂ Today",navCalendar:"▣ Progress calendar",navNotes:"▣ Notes",day:"Day",of:"of",todayLabel:"Today:",missing:"This day still needs to be added to the plan.",winner:"You are a winner!",winnerText:"Today you made an important spiritual step.",amen:"Amen",quote:"Do not boast about tomorrow, for you do not know what a day may bring.",quoteRef:"Proverbs 27:1"}
 };
 
+const biblePlanSlugs={
+  "Пс":"psalms","Притч":"proverbs","Мф":"matthew","Флп":"philippians","Кол":"colossians",
+  "3 Цар":"1kings","4 Цар":"2kings","2 Пар":"2chron",
+  "Авд":"obadiah","Иоил":"joel","Иона":"jonah","Ам":"amos","Ис":"isaiah",
+  "1 Фес":"1thessalonians","2 Фес":"2thessalonians",
+  "1 Тим":"1timothy","2 Тим":"2timothy","Тит":"titus","Флм":"philemon","Мк":"mark",
+  "Ос":"hosea","Евр":"hebrews","Мих":"micah","Соф":"zephaniah","Наум":"nahum","Авв":"habakkuk",
+  "Иер":"jeremiah","Лк":"luke","Дан":"daniel","Иез":"ezekiel","Иак":"james",
+  "1 Пет":"1peter","2 Пет":"2peter","1 Ин":"1john","2 Ин":"2john","3 Ин":"3john",
+  "Иуд":"jude","Плач":"lamentations","Езд":"ezra","Агг":"haggai","Зах":"zechariah",
+  "Откр":"revelation","Есф":"esther","Неем":"nehemiah","Мал":"malachi","Иов":"job",
+  "Деян":"acts","1 Кор":"1corinthians","Ин":"john"
+};
+
 let lang=localStorage.getItem("lang")||"ru";
 let now,key,dayOfYear;
 
@@ -48,8 +62,11 @@ function parseReadings(text){
 }
 
 function bibleUrl(book,chapter){
-  const passage=encodeURIComponent(bookQueries[book]+" "+chapter);
-  return "https://www.biblegateway.com/passage/?search="+passage+"&version="+versions[lang];
+  const slug=biblePlanSlugs[book];
+  if(!slug){
+    return "https://bibleplan.ru/bible";
+  }
+  return `https://bibleplan.ru/bible/${slug}/${chapter}`;
 }
 
 function refreshApp(){
