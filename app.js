@@ -5,16 +5,85 @@ const ui = {
 };
 
 const biblePlanSlugs = {
-  "Быт":"gen","Исх":"exod","Лев":"lev","Чис":"num","Втор":"deut","Нав":"josh","Суд":"judg","Руф":"ruth",
-  "1 Цар":"1sam","2 Цар":"2sam","3 Цар":"1kgs","4 Цар":"2kgs",
-  "1 Пар":"1chron","2 Пар":"2chron",
-  "Езд":"ezra","Неем":"neh","Есф":"esth","Иов":"job","Пс":"ps","Притч":"prov","Еккл":"eccl","Песн":"song",
-  "Ис":"isa","Иер":"jer","Плач":"lam","Иез":"ezek","Дан":"dan","Ос":"hos","Иоил":"joel","Ам":"amos","Авд":"obad",
-  "Иона":"jonah","Мих":"mic","Наум":"nah","Авв":"hab","Соф":"zeph","Агг":"hag","Зах":"zech","Мал":"mal",
-  "Мф":"matt","Мк":"mark","Лк":"luke","Ин":"john","Деян":"acts","Рим":"rom","1 Кор":"1cor","2 Кор":"2cor",
-  "Гал":"gal","Еф":"eph","Флп":"phil","Кол":"col","1 Фес":"1thess","2 Фес":"2thess","1 Тим":"1tim","2 Тим":"2tim",
-  "Тит":"titus","Флм":"phlm","Евр":"heb","Иак":"jas","1 Пет":"1pet","2 Пет":"2pet","1 Ин":"1john","2 Ин":"2john",
-  "3 Ин":"3john","Иуд":"jude","Откр":"rev"
+  "Быт":"gen","Бытие":"gen",
+  "Исх":"exod","Исход":"exod",
+  "Лев":"lev","Левит":"lev",
+  "Чис":"num","Числа":"num",
+  "Втор":"deut","Второзаконие":"deut",
+  "Нав":"josh","Иисус Навин":"josh",
+  "Суд":"judg","Судьи":"judg",
+  "Руф":"ruth","Руфь":"ruth",
+
+  "1 Цар":"1sam","1 Царств":"1sam",
+  "2 Цар":"2sam","2 Царств":"2sam",
+  "3 Цар":"1kgs","3 Царств":"1kgs",
+  "4 Цар":"2kgs","4 Царств":"2kgs",
+
+  "1 Пар":"1chron","1 Паралипоменон":"1chron",
+  "2 Пар":"2chron","2 Паралипоменон":"2chron",
+
+  "Езд":"ezra","Ездра":"ezra",
+  "Неем":"neh","Неемия":"neh",
+  "Есф":"esth","Есфирь":"esth",
+  "Иов":"job",
+
+  "Пс":"ps","Псалтирь":"ps","Псалом":"ps",
+  "Притч":"prov","Притчи":"prov","Притчи Соломона":"prov",
+
+  "Еккл":"eccl","Екклесиаст":"eccl",
+  "Песн":"song","Песня Песней":"song",
+
+  "Ис":"isa","Исаия":"isa",
+  "Иер":"jer","Иеремия":"jer",
+  "Плач":"lam","Плач Иеремии":"lam",
+  "Иез":"ezek","Иезекииль":"ezek",
+  "Дан":"dan","Даниил":"dan",
+
+  "Ос":"hos","Осия":"hos",
+  "Иоил":"joel",
+  "Ам":"amos","Амос":"amos",
+  "Авд":"obad","Авдий":"obad",
+  "Иона":"jonah",
+  "Мих":"mic","Михей":"mic",
+  "Наум":"nah",
+  "Авв":"hab","Аввакум":"hab",
+  "Соф":"zeph","Софония":"zeph",
+  "Агг":"hag","Аггей":"hag",
+  "Зах":"zech","Захария":"zech",
+  "Мал":"mal","Малахия":"mal",
+
+  "Мф":"matthew","Матфея":"matthew",
+  "Мк":"mark","Марка":"mark",
+  "Лк":"luke","Луки":"luke",
+  "Ин":"john","Иоанна":"john",
+  "Деян":"acts","Деяния":"acts","Деяния Апостолов":"acts",
+
+  "Рим":"romans","Римлянам":"romans",
+  "1 Кор":"1corinthians","1 Коринфянам":"1corinthians",
+  "2 Кор":"2corinthians","2 Коринфянам":"2corinthians",
+  "Гал":"galatians","Галатам":"galatians",
+  "Еф":"ephesians","Ефесянам":"ephesians",
+  "Флп":"philippians","Филиппийцам":"philippians",
+  "Кол":"colossians","Колоссянам":"colossians",
+
+  "1 Фес":"1thessalonians","1 Фессалоникийцам":"1thessalonians",
+  "2 Фес":"2thessalonians","2 Фессалоникийцам":"2thessalonians",
+  "1 Тим":"1timothy","1 Тимофею":"1timothy",
+  "2 Тим":"2timothy","2 Тимофею":"2timothy",
+
+  "Тит":"titus","Титу":"titus",
+  "Флм":"philemon","Филимону":"philemon",
+  "Евр":"hebrews","Евреям":"hebrews",
+  "Иак":"james","Иакова":"james",
+
+  "1 Пет":"1peter","1 Петра":"1peter",
+  "2 Пет":"2peter","2 Петра":"2peter",
+  "1 Ин":"1john","1 Иоанна":"1john",
+  "2 Ин":"2john","2 Иоанна":"2john",
+  "3 Ин":"3john","3 Иоанна":"3john",
+
+  "Иуд":"jude","Иуды":"jude",
+  "Откр":"revelation","Откровение":"revelation"
 };
 
 let lang = localStorage.getItem("lang") || "ru";
@@ -28,9 +97,11 @@ function updateTodayData(){
 
 async function updateOneSignalLanguageTag(){
   if(typeof OneSignalDeferred === "undefined") return;
+
   OneSignalDeferred.push(async function(OneSignal){
     const savedLang = localStorage.getItem("lang") || "ru";
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || "America/New_York";
+
     await OneSignal.User.addTag("language", savedLang);
     await OneSignal.User.addTag("timezone", timezone);
     await OneSignal.User.addTag("plan", "victory");
@@ -47,30 +118,37 @@ function setLang(l){
 function parseReadings(text){
   if(!text) return [];
 
-  const books = Object.keys(biblePlanSlugs).sort((a,b)=>b.length-a.length);
+  const allBooks = Object.keys(biblePlanSlugs).sort((a,b)=>b.length-a.length);
   const out = [];
   let currentBook = null;
 
-  text.split(",").map(x=>x.trim()).filter(Boolean).forEach(part=>{
-    let foundBook = null;
+  const parts = text
+    .replace(/;/g,",")
+    .split(",")
+    .map(x=>x.trim())
+    .filter(Boolean);
 
-    for(const book of books){
+  for(const part of parts){
+    let foundBook = null;
+    let rest = "";
+
+    for(const book of allBooks){
       if(part === book || part.startsWith(book + " ")){
         foundBook = book;
+        rest = part.slice(book.length).trim();
         break;
       }
     }
 
     if(foundBook){
       currentBook = foundBook;
-      const rest = part.slice(foundBook.length).trim();
       const chapters = rest.match(/\d+/g) || [];
-      chapters.forEach(ch => out.push({book: currentBook, chapter: ch}));
+      chapters.forEach(ch=>out.push({book:currentBook, chapter:ch}));
     } else if(currentBook){
       const chapters = part.match(/\d+/g) || [];
-      chapters.forEach(ch => out.push({book: currentBook, chapter: ch}));
+      chapters.forEach(ch=>out.push({book:currentBook, chapter:ch}));
     }
-  });
+  }
 
   return out;
 }
@@ -117,7 +195,11 @@ function applyLang(){
   document.querySelectorAll(".lang button").forEach(b=>b.classList.remove("active"));
   document.getElementById("btn-"+lang).classList.add("active");
 
-  todayDate.innerText = t.todayLabel + " " + now.toLocaleDateString(lang==="en"?"en-US":lang==="uk"?"uk-UA":"ru-RU",{day:"numeric",month:"long",year:"numeric"});
+  todayDate.innerText = t.todayLabel + " " + now.toLocaleDateString(
+    lang==="en" ? "en-US" : lang==="uk" ? "uk-UA" : "ru-RU",
+    {day:"numeric",month:"long",year:"numeric"}
+  );
+
   dayNumber.innerText = `${t.day} ${dayOfYear} ${t.of} 365`;
 
   if(localStorage.getItem("read-"+key)){
@@ -139,6 +221,11 @@ function renderReading(){
 
   const items = parseReadings(text);
 
+  if(!items.length){
+    reading.innerHTML = `<div class="chapter-btn">${text}</div>`;
+    return;
+  }
+
   reading.innerHTML = items.map(r=>{
     const title = (bookLabels?.[lang]?.[r.book] || r.book) + " " + r.chapter;
     return `<a class="chapter-btn" target="_blank" href="${bibleUrl(r.book,r.chapter)}">📖 ${title} ›</a>`;
@@ -152,9 +239,13 @@ readBtn.onclick = function(){
   winnerModal.style.display = "flex";
 };
 
-function closeWinner(){ winnerModal.style.display = "none"; }
+function closeWinner(){
+  winnerModal.style.display = "none";
+}
 
-function loadTodayNote(){ note.value = localStorage.getItem("note-"+key) || ""; }
+function loadTodayNote(){
+  note.value = localStorage.getItem("note-"+key) || "";
+}
 
 function saveNote(){
   updateTodayData();
@@ -163,39 +254,65 @@ function saveNote(){
 }
 
 function renderProgress(){
-  let read = 0, missed = 0;
+  let read = 0;
+  let missed = 0;
   calendar.innerHTML = "";
 
   for(let i=1;i<=365;i++){
     const date = new Date(now.getFullYear(),0,i);
     const k = String(date.getMonth()+1).padStart(2,"0")+"-"+String(date.getDate()).padStart(2,"0");
+
     const div = document.createElement("div");
     div.className = "day";
     div.innerText = i;
 
-    if(localStorage.getItem("read-"+k)){ div.classList.add("read"); read++; }
-    else if(i < dayOfYear){ div.classList.add("missed"); missed++; }
+    if(localStorage.getItem("read-"+k)){
+      div.classList.add("read");
+      read++;
+    } else if(i < dayOfYear){
+      div.classList.add("missed");
+      missed++;
+    }
 
     calendar.appendChild(div);
   }
 
   const percent = Math.round((read/365)*100);
+
   readCount.innerText = read;
   missedCount.innerText = missed;
   percentText.innerText = percent + "%";
   circleText.innerText = read + " из 365 дней";
 
   const circle = document.querySelector(".percent-circle");
-  if(circle) circle.style.background = `conic-gradient(#d18a00 ${percent*3.6}deg, #ece8e2 0deg)`;
+  if(circle){
+    circle.style.background = `conic-gradient(#d18a00 ${percent*3.6}deg, #ece8e2 0deg)`;
+  }
 }
 
-function toggleCalendar(){ calendar.classList.toggle("hidden"); }
-function scrollToToday(){ todaySection.scrollIntoView({behavior:"smooth"}); }
-function scrollToNotes(){ notesSection.scrollIntoView({behavior:"smooth"}); }
-function scrollToProgress(){ progressSection.scrollIntoView({behavior:"smooth"}); calendar.classList.remove("hidden"); }
+function toggleCalendar(){
+  calendar.classList.toggle("hidden");
+}
+
+function scrollToToday(){
+  todaySection.scrollIntoView({behavior:"smooth"});
+}
+
+function scrollToNotes(){
+  notesSection.scrollIntoView({behavior:"smooth"});
+}
+
+function scrollToProgress(){
+  progressSection.scrollIntoView({behavior:"smooth"});
+  calendar.classList.remove("hidden");
+}
 
 window.addEventListener("pageshow", refreshApp);
-document.addEventListener("visibilitychange",()=>{ if(!document.hidden) refreshApp(); });
+
+document.addEventListener("visibilitychange",()=>{
+  if(!document.hidden) refreshApp();
+});
+
 setInterval(refreshApp,60000);
 
 refreshApp();
