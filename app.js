@@ -97,55 +97,72 @@ const ui = {
 };
 
 const biblePlanSlugs = {
-  "Пс": "psalms",
-  "Притч": "proverbs",
-  "Мф": "matthew",
-  "Флп": "philippians",
-  "Кол": "colossians",
-  "3 Цар": "1kings",
-  "4 Цар": "2kings",
-  "2 Пар": "2chronicles",
-  "Авд": "obadiah",
+  "Быт": "gen",
+  "Исх": "exod",
+  "Лев": "lev",
+  "Чис": "num",
+  "Втор": "deut",
+  "Нав": "josh",
+  "Суд": "judg",
+  "Руф": "ruth",
+  "1 Цар": "1sam",
+  "2 Цар": "2sam",
+  "3 Цар": "1kgs",
+  "4 Цар": "2kgs",
+  "1 Пар": "1chron",
+  "2 Пар": "2chron",
+  "Езд": "ezra",
+  "Неем": "neh",
+  "Есф": "esth",
+  "Иов": "job",
+  "Пс": "ps",
+  "Притч": "prov",
+  "Еккл": "eccl",
+  "Песн": "song",
+  "Ис": "isa",
+  "Иер": "jer",
+  "Плач": "lam",
+  "Иез": "ezek",
+  "Дан": "dan",
+  "Ос": "hos",
   "Иоил": "joel",
-  "Иона": "jonah",
   "Ам": "amos",
-  "Ис": "isaiah",
-  "1 Фес": "1thessalonians",
-  "2 Фес": "2thessalonians",
-  "1 Тим": "1timothy",
-  "2 Тим": "2timothy",
-  "Тит": "titus",
-  "Флм": "philemon",
+  "Авд": "obad",
+  "Иона": "jonah",
+  "Мих": "mic",
+  "Наум": "nah",
+  "Авв": "hab",
+  "Соф": "zeph",
+  "Агг": "hag",
+  "Зах": "zech",
+  "Мал": "mal",
+  "Мф": "matt",
   "Мк": "mark",
-  "Ос": "hosea",
-  "Евр": "hebrews",
-  "Мих": "micah",
-  "Соф": "zephaniah",
-  "Наум": "nahum",
-  "Авв": "habakkuk",
-  "Иер": "jeremiah",
   "Лк": "luke",
-  "Дан": "daniel",
-  "Иез": "ezekiel",
-  "Иак": "james",
-  "1 Пет": "1peter",
-  "2 Пет": "2peter",
+  "Ин": "john",
+  "Деян": "acts",
+  "Рим": "rom",
+  "1 Кор": "1cor",
+  "2 Кор": "2cor",
+  "Гал": "gal",
+  "Еф": "eph",
+  "Флп": "phil",
+  "Кол": "col",
+  "1 Фес": "1thess",
+  "2 Фес": "2thess",
+  "1 Тим": "1tim",
+  "2 Тим": "2tim",
+  "Тит": "titus",
+  "Флм": "phlm",
+  "Евр": "heb",
+  "Иак": "jas",
+  "1 Пет": "1pet",
+  "2 Пет": "2pet",
   "1 Ин": "1john",
   "2 Ин": "2john",
   "3 Ин": "3john",
   "Иуд": "jude",
-  "Плач": "lamentations",
-  "Езд": "ezra",
-  "Агг": "haggai",
-  "Зах": "zechariah",
-  "Откр": "revelation",
-  "Есф": "esther",
-  "Неем": "nehemiah",
-  "Мал": "malachi",
-  "Иов": "job",
-  "Деян": "acts",
-  "1 Кор": "1corinthians",
-  "Ин": "john"
+  "Откр": "rev"
 };
 
 let lang = localStorage.getItem("lang") || "ru";
@@ -169,7 +186,12 @@ async function updateOneSignalLanguageTag() {
 
   OneSignalDeferred.push(async function (OneSignal) {
     const savedLang = localStorage.getItem("lang") || "ru";
+    const timezone =
+      Intl.DateTimeFormat().resolvedOptions().timeZone || "America/New_York";
+
     await OneSignal.User.addTag("language", savedLang);
+    await OneSignal.User.addTag("timezone", timezone);
+    await OneSignal.User.addTag("plan", "victory");
   });
 }
 
@@ -298,7 +320,7 @@ function renderReading() {
       return `<a class="chapter-btn" target="_blank" href="${bibleUrl(
         r.book,
         r.chapter
-      )}">${title}</a>`;
+      )}">📖 ${title} ›</a>`;
     })
     .join("");
 }
