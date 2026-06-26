@@ -3,11 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Exodus Bible Plan</title>
 
   <link rel="icon" href="logo.jpeg" type="image/jpeg">
   <link rel="apple-touch-icon" href="logo.jpeg">
   <meta name="theme-color" content="#111111">
+
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "920a332c-006b-4d18-a33b-86cac4b2d273",
+        serviceWorkerPath: "OneSignalSDKWorker.js"
+      });
+
+      const savedLang = localStorage.getItem("lang") || "ru";
+      await OneSignal.User.addTag("language", savedLang);
+    });
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +55,7 @@
       </div>
 
       <div class="language-title" id="languageTitle">Языки пользования</div>
+
       <div class="lang">
         <button onclick="setLang('ru')" id="btn-ru">RU</button>
         <button onclick="setLang('uk')" id="btn-uk">UK</button>
@@ -65,16 +81,24 @@
     <section class="card notes-card" id="notesSection">
       <h3 id="notesTitle">▣ Мои заметки</h3>
       <textarea id="note" maxlength="1000"></textarea>
+
       <div class="note-footer">
-        <div class="small" id="noteInfo">Ваши заметки сохраняются только на этом устройстве.</div>
-        <button class="black save-btn" onclick="saveNote()" id="saveNoteBtn">▣ Сохранить заметку</button>
+        <div class="small" id="noteInfo">
+          Ваши заметки сохраняются только на этом устройстве.
+        </div>
+
+        <button class="black save-btn" onclick="saveNote()" id="saveNoteBtn">
+          ▣ Сохранить заметку
+        </button>
       </div>
     </section>
 
     <section class="card progress-card" id="progressSection">
       <div class="progress-header">
         <h3 id="progressTitle">▣ Календарь прогресса</h3>
-        <button class="small-outline" onclick="toggleCalendar()" id="calendarBtn">▣ Показать календарь</button>
+        <button class="small-outline" onclick="toggleCalendar()" id="calendarBtn">
+          ▣ Показать календарь
+        </button>
       </div>
 
       <div class="progress-content">
@@ -83,10 +107,12 @@
             <span id="readText">Прочитано дней</span>
             <b id="readCount">0</b>
           </div>
+
           <div class="stat red">
             <span id="missedText">Пропущено дней</span>
             <b id="missedCount">0</b>
           </div>
+
           <div class="stat goldStat">
             <span id="totalText">Дней всего</span>
             <b>365</b>
