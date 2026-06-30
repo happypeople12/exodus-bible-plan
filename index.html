@@ -19,8 +19,8 @@
         serviceWorkerPath: "OneSignalSDKWorker.js"
       });
 
-      const savedLang = localStorage.getItem("lang") || "ru";
-      await OneSignal.User.addTag("language", savedLang);
+      await OneSignal.User.addTag("language", "ru");
+      await OneSignal.User.addTag("plan", "victory");
     });
   </script>
 
@@ -54,14 +54,6 @@
         </a>
       </div>
 
-      <div class="language-title" id="languageTitle">Языки пользования</div>
-
-      <div class="lang">
-        <button onclick="setLang('ru')" id="btn-ru">RU</button>
-        <button onclick="setLang('uk')" id="btn-uk">UK</button>
-        <button onclick="setLang('en')" id="btn-en">USA</button>
-      </div>
-
       <div class="reading-grid">
         <div class="reading-box">
           <h3 id="todayReadingTitle">Чтение на сегодня</h3>
@@ -80,7 +72,7 @@
 
     <section class="card notes-card" id="notesSection">
       <h3 id="notesTitle">▣ Мои заметки</h3>
-      <textarea id="note" maxlength="1000"></textarea>
+      <textarea id="note" maxlength="1000" placeholder="Что Бог сказал мне сегодня?"></textarea>
 
       <div class="note-footer">
         <div class="small" id="noteInfo">
@@ -104,17 +96,17 @@
       <div class="progress-content">
         <div class="stats">
           <div class="stat green">
-            <span id="readText">Прочитано дней</span>
+            <span id="readText">Прочитано</span>
             <b id="readCount">0</b>
           </div>
 
           <div class="stat red">
-            <span id="missedText">Пропущено дней</span>
+            <span id="missedText">Пропущено</span>
             <b id="missedCount">0</b>
           </div>
 
           <div class="stat goldStat">
-            <span id="totalText">Дней всего</span>
+            <span id="totalText">Всего</span>
             <b>365</b>
           </div>
         </div>
@@ -131,7 +123,7 @@
 
   <nav class="nav">
     <button onclick="scrollToToday()" id="navToday">⌂ Сегодня</button>
-    <button onclick="scrollToProgress()" id="navCalendar">▣ Календарь прогресса</button>
+    <button onclick="scrollToProgress()" id="navCalendar">▣ Календарь</button>
     <button onclick="scrollToNotes()" id="navNotes">▣ Заметки</button>
   </nav>
 
