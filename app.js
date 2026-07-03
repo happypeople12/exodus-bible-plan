@@ -21,22 +21,63 @@ const biblePlanSlugs = {
   "Есф":"esth","Есфирь":"esth",
   "Иов":"job",
 
-  "Пс":"ps","Псалтирь":"ps","Псалом":"ps",
+  "Пс":"psalms","Псалтирь":"psalms","Псалом":"psalms","Псалмы":"psalms",
   "Притч":"proverbs","Притчи":"proverbs","Притчи Соломона":"proverbs",
 
-  "Ис":"isa","Иер":"jer","Плач":"lam","Иез":"ezek","Дан":"dan",
-  "Ос":"hos","Иоил":"joel","Ам":"amos","Авд":"obad","Иона":"jonah",
-  "Мих":"mic","Наум":"nah","Авв":"hab","Соф":"zeph","Агг":"hag","Зах":"zech","Мал":"mal",
+  "Еккл":"eccl","Екклесиаст":"eccl",
+  "Песн":"song","Песня Песней":"song",
 
-  "Мф":"matthew","Мк":"mark","Лк":"luke","Ин":"john","Деян":"acts",
-  "Рим":"romans","1 Кор":"1corinthians","2 Кор":"2corinthians",
-  "Гал":"galatians","Еф":"ephesians","Флп":"philippians","Кол":"colossians",
-  "1 Фес":"1thessalonians","2 Фес":"2thessalonians",
-  "1 Тим":"1timothy","2 Тим":"2timothy",
-  "Тит":"titus","Флм":"philemon","Евр":"hebrews","Иак":"james",
-  "1 Пет":"1peter","2 Пет":"2peter",
-  "1 Ин":"1john","2 Ин":"2john","3 Ин":"3john",
-  "Иуд":"jude","Откр":"revelation"
+  "Ис":"isa","Исаия":"isa",
+  "Иер":"jer","Иеремия":"jer",
+  "Плач":"lam","Плач Иеремии":"lam",
+  "Иез":"ezek","Иезекииль":"ezek",
+  "Дан":"dan","Даниил":"dan",
+
+  "Ос":"hos","Осия":"hos",
+  "Иоил":"joel",
+  "Ам":"amos","Амос":"amos",
+  "Авд":"obad","Авдий":"obad",
+  "Иона":"jonah",
+  "Мих":"mic","Михей":"mic",
+  "Наум":"nah",
+  "Авв":"hab","Аввакум":"hab",
+  "Соф":"zeph","Софония":"zeph",
+  "Агг":"hag","Аггей":"hag",
+  "Зах":"zech","Захария":"zech",
+  "Мал":"mal","Малахия":"mal",
+
+  "Мф":"matthew","Матфея":"matthew",
+  "Мк":"mark","Марка":"mark",
+  "Лк":"luke","Луки":"luke",
+  "Ин":"john","Иоанна":"john",
+  "Деян":"acts","Деяния":"acts","Деяния Апостолов":"acts",
+
+  "Рим":"romans","Римлянам":"romans",
+  "1 Кор":"1corinthians","1 Коринфянам":"1corinthians",
+  "2 Кор":"2corinthians","2 Коринфянам":"2corinthians",
+  "Гал":"galatians","Галатам":"galatians",
+  "Еф":"ephesians","Ефесянам":"ephesians",
+  "Флп":"philippians","Филиппийцам":"philippians",
+  "Кол":"colossians","Колоссянам":"colossians",
+
+  "1 Фес":"1thessalonians","1 Фессалоникийцам":"1thessalonians",
+  "2 Фес":"2thessalonians","2 Фессалоникийцам":"2thessalonians",
+  "1 Тим":"1timothy","1 Тимофею":"1timothy",
+  "2 Тим":"2timothy","2 Тимофею":"2timothy",
+
+  "Тит":"titus","Титу":"titus",
+  "Флм":"philemon","Филимону":"philemon",
+  "Евр":"hebrews","Евреям":"hebrews",
+  "Иак":"james","Иакова":"james",
+
+  "1 Пет":"1peter","1 Петра":"1peter",
+  "2 Пет":"2peter","2 Петра":"2peter",
+  "1 Ин":"1john","1 Иоанна":"1john",
+  "2 Ин":"2john","2 Иоанна":"2john",
+  "3 Ин":"3john","3 Иоанна":"3john",
+
+  "Иуд":"jude","Иуды":"jude",
+  "Откр":"revelation","Откровение":"revelation"
 };
 
 let now, key, dayOfYear;
